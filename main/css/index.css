@@ -1,0 +1,57 @@
+/* Variáveis globais */
+
+:root {
+  --background: rgb(53, 53, 53);
+  --background-canvas: rgb(217, 217, 217);
+  
+  --primary-color: rgb(40, 75, 99);
+  --secondary-color: rgb(60, 110, 113);
+
+  --text-color: rgb(255, 255, 254);
+  --link-color: rgb(79, 102, 103);
+
+  --button-bg-color: rgb(255, 255, 254);
+  --button-text-color: rgb(0,0,0);
+}
+
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global */
+
+html {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  background-color: var(--background);
+}
+
+/* Tipografia */
+
+h1 { font-size: 3.2rem; }
+h2 { font-size: 2.4rem; }
+h3 { font-size: 1.5rem; }
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+/* Elementos */
+
+.button {
+  color: var(--button-text-color);
+  display: inline-block;
+  background-color: var(--button-bg-color);
+  padding: 1rem;
+  border-radius: 10px;
+}
