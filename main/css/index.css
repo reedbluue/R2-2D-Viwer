@@ -63,4 +63,5 @@ a {
 
 .r2-plan {
   background-color: var(--background-r2plan);
+  position: relative;
 }
