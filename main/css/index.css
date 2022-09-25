@@ -2,7 +2,7 @@
 
 :root {
   --background: rgb(53, 53, 53);
-  --background-canvas: rgb(217, 217, 217);
+  --background-r2plan: rgb(217, 217, 217);
   
   --primary-color: rgb(40, 75, 99);
   --secondary-color: rgb(60, 110, 113);
@@ -54,4 +54,13 @@ a {
   background-color: var(--button-bg-color);
   padding: 1rem;
   border-radius: 10px;
+}
+
+.plan-container {
+  background-color: burlywood;
+  overflow: hidden;
+}
+
+.r2-plan {
+  background-color: var(--background-r2plan);
 }
