@@ -30,6 +30,32 @@ const ajustePlano = () => {
       r2Plan.setAttribute('height', `${planContainer.offsetHeight}px`); // modificando a altura do plano R2
     }
 
+    // correção da posição do plano (bug onde o plano sai do limite de tela)
+
+    let r2Left = r2Plan.offsetLeft;
+    let r2Right = r2Plan.offsetLeft + r2Plan.offsetWidth;
+
+    if (r2Left > 0) {
+      r2Plan.style.left = `0px`;
+    }
+
+    if (r2Right < planContainer.offsetWidth) {
+      r2Plan.style.left = `${planContainer.offsetWidth - r2Plan.offsetWidth}px`;
+    }
+
+    let r2Top = r2Plan.offsetTop;
+    let r2Bottom = r2Plan.offsetTop + r2Plan.offsetHeight;
+
+    if (r2Top > 0) {
+      r2Plan.style.top = `0px`;
+    }
+
+    if (r2Bottom < planContainer.offsetHeight) {
+      r2Plan.style.top = `${planContainer.offsetHeight - r2Plan.offsetHeight}px`;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////
+
     geraPlano();
   });
 
