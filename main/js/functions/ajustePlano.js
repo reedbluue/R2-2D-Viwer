@@ -1,4 +1,4 @@
-import geraPlano from "./geraPlano.js";
+import { PlanoPrint } from "../helpers/PlanoPrint.js";
 
 // Declarando constantes globais
 const planContainer = document.querySelector('.plan-container');
@@ -56,7 +56,7 @@ const ajustePlano = () => {
 
     /////////////////////////////////////////////////////////////////////////////////
 
-    geraPlano();
+    PlanoPrint.geraPlano();
   });
 
 };
