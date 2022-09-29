@@ -1,7 +1,9 @@
-export class VertoresView {
+import { View } from "./View.js";
+
+export class ListaVetoresView extends View{
 
   constructor(elemento) {
-    this._elemento =  elemento;
+    super(elemento)
   }
 
   template(model) {
@@ -29,10 +31,6 @@ export class VertoresView {
         </tbody>
       </table>   
     `;
-  }
-
-  update(model) {
-    this._elemento.innerHTML = this.template(model);
   }
 
 }

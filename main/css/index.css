@@ -79,12 +79,12 @@ tbody tr:nth-child(odd) {
   border-radius: 10px;
 }
 
-.plan-container {
+.plan {
   background-color: burlywood;
   overflow: hidden;
 }
 
-.r2-plan {
+.plan canvas {
   background-color: var(--background-r2plan);
   position: relative;
 }

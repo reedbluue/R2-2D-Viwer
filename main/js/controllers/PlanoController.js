@@ -1,11 +1,13 @@
 import { Bind } from "../helpers/Bind.js";
 import { ListaVetores } from "../models/ListaVetores.js";
+import { Plano } from "../models/Plano.js";
 import { Vetor } from "../models/Vetor.js";
-import { VertoresView } from "../views/VetoresView.js";
+import { ListaVetoresView } from "../views/ListaVetoresView.js";
+import { PlanoView } from "../views/PlanoView.js";
 
 const $ = document.querySelector.bind(document);
 
-export class VetoresController {
+export class PlanoController {
 
   constructor() {
     this._formID = $('#form-id');
@@ -15,9 +17,15 @@ export class VetoresController {
 
     this._listaVetores = new Bind(
       new ListaVetores(),
-      new VertoresView($('#vetor-view')),
+      new ListaVetoresView($('#lista-view')),
       'adiciona'
     );
+
+    this._planoView = new PlanoView(new Plano('#plano1'), this._listaVetores);
+
+    addEventListener('resize', () => {
+      this._planoView.update(this._listaVetores);
+    })
   }
 
   adicionaVetor() {
@@ -28,5 +36,6 @@ export class VetoresController {
       this._formJ.value
     );
     this._listaVetores.adiciona(vetor);
+    this._planoView.update(this._listaVetores);
   }
 }

@@ -12,4 +12,15 @@ export class ListaVetores {
       throw new Error('Tentativa de acidionar um item inválido em ListaVetores!');
     return this._lista.push(vetor);
   }
+
+  maiorIJ() {
+    let mI = 0, mJ = 0;
+    this._lista.forEach(vetor => {
+      if(mI < Math.abs(vetor.i))
+        mI = Math.abs(vetor.i);
+      if(mJ < Math.abs(vetor.j))
+        mJ = Math.abs(vetor.j);    
+    });
+    return [mI, mJ];
+  }
 }

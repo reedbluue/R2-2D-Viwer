@@ -1,18 +1,12 @@
+import { drawArrow, drawRefLine } from "../functions/drawElements.js";
+import { Plano } from "../models/Plano.js";
 import { Vetor } from "../models/Vetor.js";
 
-// Declarando constantes globais
-
-const r2Plan = document.querySelector('.r2-plan');
-
-
-// Gerando o plano
-
-const ctxPlano = r2Plan.getContext('2d');
+// Constantes
 
 const eixosWidth = 3; // espessura dos eixos
 const eixosColor = '#000'; // cor dos eixos
 
-const escala = 35; // escala em px para cada unidade
 const escalaWidth = 1;
 const escalaSize = 8;
 const escalaColor = '#000'; // cor dos eixos
@@ -21,194 +15,153 @@ const markFont = 12; // tamanho da fonte das marcações em px
 const markColor = '#000'; // cor da fonte das marcações
 const markGap = 15; // espaço entre a mark e a escala
 
-const vetorWidth = 2;
+const vetorWidth = 2; // espeçura do vetor
 
 export class PlanoPrint {
+  constructor(plano) {
+    if(!plano instanceof Plano)
+      throw new Error('Modelo inválido em PlanoPrint!');
 
-  constructor() {
-    throw new Error('A classe PrintVetor não deve ser instanciada!');
+  this._canvas = plano.canvas;
+  this._ctx = this._canvas.getContext('2d');
+
+  this.escala = 35; // escala em px para cada unidade
   }
 
-  static print(vetor) {
+  updatePlano(model) {
+    this._geraEixos();
+    model.lista.forEach(vetor => {
+      this._print(vetor);
+    });
+  }
+
+  _print(vetor) {
     if (!vetor instanceof Vetor)
       throw new Error('Tentativa de acidionar um item inválido em ListaVetores!');
     
-    let planW = r2Plan.offsetWidth;
-    let planH = r2Plan.offsetHeight;
+    let planW = this._canvas.offsetWidth;
+    let planH = this._canvas.offsetHeight;
 
     drawArrow(
-      ctxPlano,
+      this._ctx,
       planW/2, planH/2,
-      planW/2 + (escala * vetor.i), planH/2 - (escala * vetor.j),
+      planW/2 + (this.escala * vetor.i), planH/2 - (this.escala * vetor.j),
       vetorWidth, vetor.color
     );
     
-    ctxPlano.strokeStyle = vetor.color;
-    ctxPlano.setLineDash([15, 15]);
-    ctxPlano.lineDashOffset = -15;
-    ctxPlano.lineWidth = Math.ceil(vetorWidth / 2);
-    ctxPlano.moveTo(planW/2 + (escala * vetor.i), planH/2 - (escala * vetor.j));
-    ctxPlano.lineTo(planW/2 + (escala * vetor.i), planH/2);
-    ctxPlano.moveTo(planW/2 + (escala * vetor.i), planH/2 - (escala * vetor.j));
-    ctxPlano.lineTo(planW/2, planH/2 - (escala * vetor.j));
-    ctxPlano.stroke();
+    drawRefLine(this._ctx, vetor, this.escala, planW, planH);
 
-    ctxPlano.closePath();
   }
 
-  static geraPlano(lista = []) {
+  _geraEixos() {
 
-    let planW = r2Plan.offsetWidth;
-    let planH = r2Plan.offsetHeight;
+    let planW = this._canvas.offsetWidth;
+    let planH = this._canvas.offsetHeight;
   
-    ctxPlano.clearRect(0, 0, r2Plan.width, r2Plan.height);
-    ctxPlano.beginPath();
-    ctxPlano.lineWidth = eixosWidth;
-    ctxPlano.strokeStyle = eixosColor;
-    ctxPlano.setLineDash([]);
-    ctxPlano.moveTo(planW/2, 0);
-    ctxPlano.lineTo(planW/2, planH);
-    ctxPlano.moveTo(0, planH/2);
-    ctxPlano.lineTo(planW, planH/2);
-    ctxPlano.stroke();
-    ctxPlano.closePath();
+    this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
+    this._ctx.beginPath();
+    this._ctx.lineWidth = eixosWidth;
+    this._ctx.strokeStyle = eixosColor;
+    this._ctx.setLineDash([]);
+    this._ctx.moveTo(planW/2, 0);
+    this._ctx.lineTo(planW/2, planH);
+    this._ctx.moveTo(0, planH/2);
+    this._ctx.lineTo(planW, planH/2);
+    this._ctx.stroke();
+    this._ctx.closePath();
   
-    for (let i = planW/2; i < planW; i += escala) {
-  
-      // Printando a escala
-  
-      ctxPlano.beginPath();
-      ctxPlano.lineWidth = escalaWidth;
-      ctxPlano.strokeStyle = escalaColor;
-      ctxPlano.setLineDash([]);
-      ctxPlano.moveTo(i, planH/2);
-      ctxPlano.lineTo(i, (planH/2) + escalaSize);
-      ctxPlano.stroke();
-  
-      ctxPlano.font = `${markFont}px serif`;
-      ctxPlano.strokeStyle = markColor;
-  
-      let markAtual = Math.floor((i - planW/2) / escala);
-  
-      if (markAtual != 0)
-        ctxPlano.fillText(`${markAtual}`, i - (`${markAtual}`.length * (markFont / 4)), (planH/2) + escalaSize + markGap);
-  
-      ctxPlano.closePath();
-    }
-  
-    for (let i = planW/2; i > 0; i -= escala) {
+    for (let i = planW/2; i < planW; i += this.escala) {
   
       // Printando a escala
   
-      ctxPlano.beginPath();
-      ctxPlano.lineWidth = escalaWidth;
-      ctxPlano.strokeStyle = escalaColor;
-      ctxPlano.setLineDash([]);
-      ctxPlano.moveTo(i, planH/2);
-      ctxPlano.lineTo(i, (planH/2) + escalaSize);
-      ctxPlano.stroke();
-      ctxPlano.closePath();
+      this._ctx.beginPath();
+      this._ctx.lineWidth = escalaWidth;
+      this._ctx.strokeStyle = escalaColor;
+      this._ctx.setLineDash([]);
+      this._ctx.moveTo(i, planH/2);
+      this._ctx.lineTo(i, (planH/2) + escalaSize);
+      this._ctx.stroke();
   
-      ctxPlano.font = `${markFont}px serif`;
-      ctxPlano.strokeStyle = markColor;
+      this._ctx.font = `${markFont}px serif`;
+      this._ctx.strokeStyle = markColor;
   
-      let markAtual = Math.floor((i - planW/2) / escala);
+      let markAtual = Math.floor((i - planW/2) / this.escala);
   
       if (markAtual != 0)
-        ctxPlano.fillText(`${markAtual}`, i - (`${markAtual}`.length * (markFont / 4)), (planH/2) + escalaSize + markGap);
+        this._ctx.fillText(`${markAtual}`, i - (`${markAtual}`.length * (markFont / 4)), (planH/2) + escalaSize + markGap);
   
-      ctxPlano.closePath();
+      this._ctx.closePath();
     }
   
-    for (let i = planH/2; i > 0; i -= escala) {
+    for (let i = planW/2; i > 0; i -= this.escala) {
   
       // Printando a escala
   
-      ctxPlano.beginPath();
-      ctxPlano.lineWidth = escalaWidth;
-      ctxPlano.strokeStyle = escalaColor;
-      ctxPlano.setLineDash([]);
-      ctxPlano.moveTo(planW/2, i);
-      ctxPlano.lineTo((planW/2) - escalaSize, i);
-      ctxPlano.stroke();
+      this._ctx.beginPath();
+      this._ctx.lineWidth = escalaWidth;
+      this._ctx.strokeStyle = escalaColor;
+      this._ctx.setLineDash([]);
+      this._ctx.moveTo(i, planH/2);
+      this._ctx.lineTo(i, (planH/2) + escalaSize);
+      this._ctx.stroke();
+      this._ctx.closePath();
   
-      ctxPlano.font = `${markFont}px serif`;
-      ctxPlano.strokeStyle = markColor;
+      this._ctx.font = `${markFont}px serif`;
+      this._ctx.strokeStyle = markColor;
   
-      let markAtual = Math.floor((i - planH/2) / escala) * -1;
+      let markAtual = Math.floor((i - planW/2) / this.escala);
   
       if (markAtual != 0)
-        ctxPlano.fillText(`${markAtual}`, (planW/2) - escalaSize - markGap - (`${markAtual}`.length * (markFont / 5)), i - (`${markAtual}`.length - (markFont / 2.8)));
+        this._ctx.fillText(`${markAtual}`, i - (`${markAtual}`.length * (markFont / 4)), (planH/2) + escalaSize + markGap);
   
-      ctxPlano.closePath();
+      this._ctx.closePath();
     }
   
-    for (let i = planH/2; i < planH; i += escala) {
+    for (let i = planH/2; i > 0; i -= this.escala) {
   
       // Printando a escala
   
-      ctxPlano.beginPath();
-      ctxPlano.lineWidth = escalaWidth;
-      ctxPlano.strokeStyle = escalaColor;
-      ctxPlano.setLineDash([]);
-      ctxPlano.moveTo(planW/2, i);
-      ctxPlano.lineTo((planW/2) - escalaSize, i);
-      ctxPlano.stroke();
+      this._ctx.beginPath();
+      this._ctx.lineWidth = escalaWidth;
+      this._ctx.strokeStyle = escalaColor;
+      this._ctx.setLineDash([]);
+      this._ctx.moveTo(planW/2, i);
+      this._ctx.lineTo((planW/2) - escalaSize, i);
+      this._ctx.stroke();
   
-      ctxPlano.font = `${markFont}px serif`;
-      ctxPlano.strokeStyle = markColor;
+      this._ctx.font = `${markFont}px serif`;
+      this._ctx.strokeStyle = markColor;
   
-      let markAtual = Math.floor((i - planH/2) / escala) * -1;
+      let markAtual = Math.floor((i - planH/2) / this.escala) * -1;
   
       if (markAtual != 0)
-        ctxPlano.fillText(`${markAtual}`, (planW/2) - escalaSize - markGap - (`${markAtual}`.length * (markFont / 5)), i - (`${markAtual}`.length - (markFont / 2.8)));
+        this._ctx.fillText(`${markAtual}`, (planW/2) - escalaSize - markGap - (`${markAtual}`.length * (markFont / 5)), i - (`${markAtual}`.length - (markFont / 2.8)));
   
-      ctxPlano.closePath();
+      this._ctx.closePath();
     }
-
-    lista.forEach(vetor => {
-      PlanoPrint.print(vetor);
-    });
+  
+    for (let i = planH/2; i < planH; i += this.escala) {
+  
+      // Printando a escala
+  
+      this._ctx.beginPath();
+      this._ctx.lineWidth = escalaWidth;
+      this._ctx.strokeStyle = escalaColor;
+      this._ctx.setLineDash([]);
+      this._ctx.moveTo(planW/2, i);
+      this._ctx.lineTo((planW/2) - escalaSize, i);
+      this._ctx.stroke();
+  
+      this._ctx.font = `${markFont}px serif`;
+      this._ctx.strokeStyle = markColor;
+  
+      let markAtual = Math.floor((i - planH/2) / this.escala) * -1;
+  
+      if (markAtual != 0)
+        this._ctx.fillText(`${markAtual}`, (planW/2) - escalaSize - markGap - (`${markAtual}`.length * (markFont / 5)), i - (`${markAtual}`.length - (markFont / 2.8)));
+  
+      this._ctx.closePath();
+    }
   }
 }
 
-function drawArrow(ctx, fromx, fromy, tox, toy, arrowWidth, color){
-  //variables to be used when creating the arrow
-  var headlen = 10;
-  var angle = Math.atan2(toy-fromy,tox-fromx);
-
-  ctx.save();
-  ctxPlano.setLineDash([]);
-  ctx.strokeStyle = color;
-  ctx.fillStyle = color;
-
-  //starting path of the arrow from the start square to the end square
-  //and drawing the stroke
-  ctx.beginPath();
-  ctx.moveTo(fromx, fromy);
-  ctx.lineTo(tox, toy);
-  ctx.lineWidth = arrowWidth;
-  ctx.stroke();
-
-  //starting a new path from the head of the arrow to one of the sides of
-  //the point
-  ctx.beginPath();
-  ctx.moveTo(tox, toy);
-  ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7),
-             toy-headlen*Math.sin(angle-Math.PI/7));
-
-  //path from the side point of the arrow, to the other side point
-  ctx.lineTo(tox-headlen*Math.cos(angle+Math.PI/7),
-             toy-headlen*Math.sin(angle+Math.PI/7));
-
-  //path from the side point back to the tip of the arrow, and then
-  //again to the opposite side point
-  ctx.lineTo(tox, toy);
-  ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7),
-             toy-headlen*Math.sin(angle-Math.PI/7));
-
-  //draws the paths created above
-  ctx.stroke();
-  ctx.fill();
-  ctx.restore();
-}
