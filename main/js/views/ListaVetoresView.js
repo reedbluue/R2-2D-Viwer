@@ -15,6 +15,7 @@ export class ListaVetoresView extends View{
           <th>COORDENADAS ( i , j )</th>
           <th>NORMA</th>
           <th>TIPO</th>
+          <th>DEL?</th>
         </thead>
         <tbody>
           ${model.lista.map(vetor => {
@@ -25,6 +26,7 @@ export class ListaVetoresView extends View{
                 <td>( ${vetor.i} , ${vetor.j} )</td>
                 <td>${vetor.norma()}</td>
                 <td>${vetor.tipo()}</td>
+                <td class="table--del-cell" js--deletar-vetor>X</td>
               </tr>
             `;
           }).join('')}

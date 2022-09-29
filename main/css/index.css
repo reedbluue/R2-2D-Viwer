@@ -93,7 +93,7 @@ tbody tr:nth-child(odd) {
 }
 
 .view {
-  width: 100vw;
+  width: 100%;
 }
 
 .alerta {
@@ -102,5 +102,12 @@ tbody tr:nth-child(odd) {
 }
 
 .alerta--erro {
-  background-color: rgb(113, 60, 60);
+  background-color: rgb(133, 55, 55);
+}
+
+.table--del-cell {
+  color: rgb(241, 83, 83);
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
 }

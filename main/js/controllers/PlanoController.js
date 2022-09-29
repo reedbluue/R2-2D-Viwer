@@ -27,7 +27,7 @@ export class PlanoController {
     this._listaVetores = new Bind(
       new ListaVetores(),
       new ListaVetoresView($('#lista-view')),
-      'adiciona'
+      'adiciona', 'remove'
     );
 
     this._planoView = new PlanoView(new Plano('#plano1'), this._listaVetores);
@@ -52,5 +52,16 @@ export class PlanoController {
     } finally {
       this._planoView.update(this._listaVetores);
     }   
+  }
+
+  removeVetor(id) {
+    try {
+      this._listaVetores.remove(id);
+      this._mensagem.modify(`Vetor '${id}' removido com sucesso!`, 0);
+    } catch (err) {
+      this._mensagem.modify(err.message, 1);
+    } finally {
+      this._planoView.update(this._listaVetores);
+    }
   }
 }

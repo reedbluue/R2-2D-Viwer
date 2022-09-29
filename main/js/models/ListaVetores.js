@@ -14,6 +14,13 @@ export class ListaVetores {
     return this._lista.push(vetor);
   }
 
+  remove(id) {
+    let index = this._lista.findIndex(vetor => vetor.id == id);
+    if (index == -1)
+      throw new Error('Id não encontrado! Não foi possível remover o vetor.');
+    this._lista.splice(index, 1);
+  }
+
   maiorIJ() {
     let mI = 0, mJ = 0;
     this._lista.forEach(vetor => {
