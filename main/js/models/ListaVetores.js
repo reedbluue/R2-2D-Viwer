@@ -10,6 +10,7 @@ export class ListaVetores {
   adiciona(vetor) {
     if (!vetor instanceof Vetor)
       throw new Error('Tentativa de acidionar um item inválido em ListaVetores!');
+    this._isValid(vetor);
     return this._lista.push(vetor);
   }
 
@@ -22,5 +23,12 @@ export class ListaVetores {
         mJ = Math.abs(vetor.j);    
     });
     return [mI, mJ];
+  }
+
+  _isValid(vetor) {
+    this._lista.forEach(obj => {
+      if(vetor.id == obj.id)
+        throw new Error(`Já existe um vetor com o ID '${vetor.id}'`);
+    });
   }
 }

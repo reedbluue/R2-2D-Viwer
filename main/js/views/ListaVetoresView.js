@@ -15,6 +15,7 @@ export class ListaVetoresView extends View{
           <th>Coordenada i</th>
           <th>Coordenada j</th>
           <th>Norma</th>
+          <th>Tipo</th>
         </thead>
         <tbody>
           ${model.lista.map(vetor => {
@@ -25,6 +26,7 @@ export class ListaVetoresView extends View{
                 <td>${vetor.i}</td>
                 <td>${vetor.j}</td>
                 <td>${vetor.norma()}</td>
+                <td>${vetor.tipo()}</td>
               </tr>
             `;
           }).join('')}

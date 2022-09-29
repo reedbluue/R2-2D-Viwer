@@ -16,11 +16,11 @@
     </div>
     <div id="mensagem-view"></div>
     <form id="form-vetor">
-      <input type="text" name="id" id="form-id">
-      <input type="number" name="i" id="form-i">
-      <input type="number" name="j" id="form-j">
-      <input type="color" name="color" id="form-color">
-      <input type="submit" value="Adicionar Vetor">
+      <input type="text" name="id" id="form-id" required autofocus style="text-transform:uppercase"/>
+      <input type="number" name="i" id="form-i" min="-100" max="100" required/>
+      <input type="number" name="j" id="form-j" min="-100" max="100" required/>
+      <input type="color" name="color" id="form-color"/>
+      <input type="submit" value="Adicionar Vetor"/>
     </form>
 
     <div id="lista-view"> 

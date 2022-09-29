@@ -13,6 +13,7 @@ export class PlanoController {
 
   constructor() {
     this._formID = $('#form-id');
+    this._formID.focus();
     this._formColor = $('#form-color');
     this._formI = $('#form-i');
     this._formJ = $('#form-j');
@@ -37,14 +38,19 @@ export class PlanoController {
   }
 
   adicionaVetor() {
-    let vetor = new Vetor(
-      this._formID.value,
-      this._formColor.value,
-      this._formI.value,
-      this._formJ.value
-    );
-    this._listaVetores.adiciona(vetor);
-    this._planoView.update(this._listaVetores);
-    this._mensagem.content = 'Vetor adicionado com sucesso!';
+    try {
+      let vetor = new Vetor(
+        this._formID.value,
+        this._formColor.value,
+        this._formI.value,
+        this._formJ.value
+      );
+      this._listaVetores.adiciona(vetor);
+      this._mensagem.modify('Vetor adicionado com sucesso!', 0);
+    } catch(err) {
+      this._mensagem.modify(err.message, 1);
+    } finally {
+      this._planoView.update(this._listaVetores);
+    }   
   }
 }
