@@ -22,10 +22,11 @@ export class PlanoPrint {
     if(!plano instanceof Plano)
       throw new Error('Modelo inválido em PlanoPrint!');
 
+  this._plano = plano;
   this._canvas = plano.canvas;
   this._ctx = this._canvas.getContext('2d');
 
-  this.escala = 35; // escala em px para cada unidade
+  this.escalaDistancia = 35; // escala em px para cada unidade
   }
 
   updatePlano(model) {
@@ -45,11 +46,11 @@ export class PlanoPrint {
     drawArrow(
       this._ctx,
       planW/2, planH/2,
-      planW/2 + (this.escala * vetor.i), planH/2 - (this.escala * vetor.j),
+      planW/2 + (this.escalaDistancia * vetor.i / this._plano.escala), planH/2 - (this.escalaDistancia * vetor.j / this._plano.escala),
       vetorWidth, vetor.color
     );
     
-    drawRefLine(this._ctx, vetor, this.escala, planW, planH);
+    drawRefLine(this._ctx, vetor, this.escalaDistancia, planW, planH);
 
   }
 
@@ -70,7 +71,7 @@ export class PlanoPrint {
     this._ctx.stroke();
     this._ctx.closePath();
   
-    for (let i = planW/2; i < planW; i += this.escala) {
+    for (let i = planW/2; i < planW; i += this.escalaDistancia) {
   
       // Printando a escala
   
@@ -85,7 +86,7 @@ export class PlanoPrint {
       this._ctx.font = `${markFont}px serif`;
       this._ctx.fillStyle = markColor;
   
-      let markAtual = Math.floor((i - planW/2) / this.escala);
+      let markAtual = Math.floor((i - planW/2) / this.escalaDistancia) * this._plano.escala;
   
       if (markAtual != 0)
         this._ctx.fillText(`${markAtual}`, i - (`${markAtual}`.length * (markFont / 4)), (planH/2) + escalaSize + markGap);
@@ -93,7 +94,7 @@ export class PlanoPrint {
       this._ctx.closePath();
     }
   
-    for (let i = planW/2; i > 0; i -= this.escala) {
+    for (let i = planW/2; i > 0; i -= this.escalaDistancia) {
   
       // Printando a escala
   
@@ -109,7 +110,7 @@ export class PlanoPrint {
       this._ctx.font = `${markFont}px serif`;
       this._ctx.strokeStyle = markColor;
   
-      let markAtual = Math.floor((i - planW/2) / this.escala);
+      let markAtual = Math.floor((i - planW/2) / this.escalaDistancia) * this._plano.escala;
   
       if (markAtual != 0)
         this._ctx.fillText(`${markAtual}`, i - (`${markAtual}`.length * (markFont / 4)), (planH/2) + escalaSize + markGap);
@@ -117,7 +118,7 @@ export class PlanoPrint {
       this._ctx.closePath();
     }
   
-    for (let i = planH/2; i > 0; i -= this.escala) {
+    for (let i = planH/2; i > 0; i -= this.escalaDistancia) {
   
       // Printando a escala
   
@@ -132,7 +133,7 @@ export class PlanoPrint {
       this._ctx.font = `${markFont}px serif`;
       this._ctx.strokeStyle = markColor;
   
-      let markAtual = Math.floor((i - planH/2) / this.escala) * -1;
+      let markAtual = Math.floor((i - planH/2) / this.escalaDistancia) * -1 * this._plano.escala;
   
       if (markAtual != 0)
         this._ctx.fillText(`${markAtual}`, (planW/2) - escalaSize - markGap - (`${markAtual}`.length * (markFont / 5)), i - (`${markAtual}`.length - (markFont / 2.8)));
@@ -140,7 +141,7 @@ export class PlanoPrint {
       this._ctx.closePath();
     }
   
-    for (let i = planH/2; i < planH; i += this.escala) {
+    for (let i = planH/2; i < planH; i += this.escalaDistancia) {
   
       // Printando a escala
   
@@ -155,7 +156,7 @@ export class PlanoPrint {
       this._ctx.font = `${markFont}px serif`;
       this._ctx.strokeStyle = markColor;
   
-      let markAtual = Math.floor((i - planH/2) / this.escala) * -1;
+      let markAtual = Math.floor((i - planH/2) / this.escalaDistancia) * -1 * this._plano.escala;
   
       if (markAtual != 0)
         this._ctx.fillText(`${markAtual}`, (planW/2) - escalaSize - markGap - (`${markAtual}`.length * (markFont / 5)), i - (`${markAtual}`.length - (markFont / 2.8)));

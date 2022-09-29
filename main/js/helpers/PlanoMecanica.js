@@ -5,21 +5,40 @@ export class PlanoMecanica {
     if(!plano instanceof Plano)
       throw new Error('Modelo inválido em PlanoMecanica!');
 
+    this._plano = plano;
     this._container = plano.container;
     this._canvas = plano.canvas;
+    
     this._centerButton = plano.centerButton;
+    this._escalaInButton = plano.escalaInButton;
+    this._escalaOutButton = plano.escalaOutButton;
 
     this._cursorLeftPosition = 0;
     this._cursorTopPosition = 0;
 
     this._canvas.addEventListener('mousedown', this._arrastaMouseClick); // evento clique do mouse
     this._canvas.addEventListener('touchstart', this._arrastaTouchClick); // evento touch da tela
+
     this._centerButton.addEventListener('click', this.centralizaPlano); // evento botão centralizar
+    this._escalaInButton.addEventListener('click', this._aumentaEscala);
+    this._escalaOutButton.addEventListener('click', this._diminuiEscala);
   }
 
   centralizaPlano = () => {
     this._canvas.style.left = `${(this._container.offsetWidth - this._canvas.offsetWidth) / 2}px`;
     this._canvas.style.top = `${(this._container.offsetHeight - this._canvas.offsetHeight) / 2}px`;
+  }
+
+  _aumentaEscala = () => {
+    this._plano.escala += 1;
+    if(this._plano.escala > 10)
+      this._plano.escala = 10;;
+  }
+
+  _diminuiEscala = () => {
+    this._plano.escala -= 1;
+    if(this._plano.escala < 1)
+      this._plano.escala = 1;
   }
 
   _arrastaMouseClick = e => { // ao clicar o mouse

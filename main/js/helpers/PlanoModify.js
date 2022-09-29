@@ -8,7 +8,7 @@ export class PlanoModify {
     this._plano = plano;
   }
 
-  ajustaAoDisplay(lista, escala) {
+  ajustaAoDisplay(lista, escalaDistancia) {
 
     this._plano.container.style.width = `${window.innerWidth * this._plano.width}px`; // atualiza valores do tamanho do container do plano
     this._plano.container.style.height = `${window.innerHeight * this._plano.height}px`; // atualiza valores do tamanho do container do plano
@@ -23,11 +23,11 @@ export class PlanoModify {
 
     let maiorIJ = lista.maiorIJ();
 
-    if(this._plano.canvas.offsetWidth < (maiorIJ[0] * escala) * 2)
-      this._plano.canvas.setAttribute('width', `${(maiorIJ[0] * escala) * 2 + (escala * 5)}px`);
+    if(this._plano.canvas.offsetWidth < (maiorIJ[0] * escalaDistancia) * 2)
+      this._plano.canvas.setAttribute('width', `${(maiorIJ[0] * escalaDistancia) * 2 + (escalaDistancia * 5)}px`);
 
-    if(this._plano.canvas.offsetHeight < (maiorIJ[1] * escala) * 2)
-      this._plano.canvas.setAttribute('height', `${(maiorIJ[1] * escala) * 2 + (escala * 5)}px`);
+    if(this._plano.canvas.offsetHeight < (maiorIJ[1] * escalaDistancia) * 2)
+      this._plano.canvas.setAttribute('height', `${(maiorIJ[1] * escalaDistancia) * 2 + (escalaDistancia * 5)}px`);
 
     // Ajusta a posição do canvas caso saia do compo visível da tela
     
