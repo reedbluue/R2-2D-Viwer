@@ -88,3 +88,12 @@ tbody tr:nth-child(odd) {
   background-color: var(--background-r2plan);
   position: relative;
 }
+
+.alerta {
+  background-color: rgb(60, 110, 113);
+  padding: .5rem;
+}
+
+.alerta--erro {
+  background-color: rgb(113, 60, 60);
+}

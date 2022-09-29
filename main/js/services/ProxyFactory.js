@@ -17,9 +17,9 @@ export class ProxyFactory {
         return Reflect.get(...arguments);
       },
       set(target, prop, value, receiver) {
-        if(props.include(prop)){
-          acao(target);
+        if(props.includes(prop)){
           Reflect.set(...arguments);
+          acao(target);
         }
         return Reflect.set(...arguments);
       }
