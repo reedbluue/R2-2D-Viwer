@@ -24,10 +24,10 @@ export class PlanoModify {
     let maiorIJ = lista.maiorIJ();
 
     if(this._plano.canvas.offsetWidth < (maiorIJ[0] * escala) * 2)
-      this._plano.canvas.setAttribute('width', `${(maiorIJ[0] * escala) * 2}px`);
+      this._plano.canvas.setAttribute('width', `${(maiorIJ[0] * escala) * 2 + (escala * 5)}px`);
 
     if(this._plano.canvas.offsetHeight < (maiorIJ[1] * escala) * 2)
-      this._plano.canvas.setAttribute('height', `${(maiorIJ[1] * escala) * 2}px`);
+      this._plano.canvas.setAttribute('height', `${(maiorIJ[1] * escala) * 2 + (escala * 5)}px`);
 
     // Ajusta a posição do canvas caso saia do compo visível da tela
     

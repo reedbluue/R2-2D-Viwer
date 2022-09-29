@@ -4,7 +4,7 @@
   --background: rgb(53, 53, 53);
   --background-r2plan: rgb(217, 217, 217);
   
-  --primary-color: rgb(40, 75, 99);
+  --primary-color: hsl(204, 42%, 27%);
   --secondary-color: rgb(60, 110, 113);
 
   --text-color: rgb(255, 255, 254);
@@ -54,6 +54,7 @@ table {
   color: rgb(0,0,0);
   background-color: rgb(217, 217, 217);
   text-align: center;
+  width: 100%;
 }
 
 table th {
@@ -66,11 +67,6 @@ tbody tr:nth-child(odd) {
 
 /* Elementos Específicos*/
 
-#vetor-view {
-  display: flex;
-  flex-direction: column;
-}
-
 .button {
   color: var(--button-text-color);
   display: inline-block;
@@ -82,11 +78,22 @@ tbody tr:nth-child(odd) {
 .plan {
   background-color: burlywood;
   overflow: hidden;
+  touch-action: none;
 }
 
 .plan canvas {
   background-color: var(--background-r2plan);
   position: relative;
+}
+
+#center-button {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+
+.view {
+  width: 100vw;
 }
 
 .alerta {

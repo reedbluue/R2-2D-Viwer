@@ -16,16 +16,17 @@
     </div>
     <div id="mensagem-view"></div>
     <form id="form-vetor">
-      <input type="text" name="id" id="form-id" required autofocus style="text-transform:uppercase"/>
-      <input type="number" name="i" id="form-i" min="-100" max="100" required/>
-      <input type="number" name="j" id="form-j" min="-100" max="100" required/>
-      <input type="color" name="color" id="form-color"/>
-      <input type="submit" value="Adicionar Vetor"/>
+      <input type="text" name="id" id="form-id" required autofocus style="text-transform:uppercase" placeholder="Nome do vetor"/>
+      <input type="number" name="i" id="form-i" min="-100" max="100" style="text-transform:uppercase" required placeholder="Coordenada i" />
+      <input type="number" name="j" id="form-j" min="-100" max="100" style="text-transform:uppercase" required placeholder="Coordenada j"/>
+      <input type="color" name="color" id="form-color" value="#284b63"/>
+      <input type="submit" value="ADICIONAR VETOR"/>
     </form>
 
-    <div id="lista-view"> 
+    <div id="lista-view" class="view"> 
     </div>
 
     <script src="./js/index.js" type="module"></script>
   </body>
 </html>
+<!--<img id="center-button" src="./img/logo-netuno.png" alt="botão para centralizar">-->

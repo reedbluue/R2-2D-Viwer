@@ -83,7 +83,7 @@ export class PlanoPrint {
       this._ctx.stroke();
   
       this._ctx.font = `${markFont}px serif`;
-      this._ctx.strokeStyle = markColor;
+      this._ctx.fillStyle = markColor;
   
       let markAtual = Math.floor((i - planW/2) / this.escala);
   

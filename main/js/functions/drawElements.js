@@ -2,7 +2,7 @@ export function drawArrow(ctx, fromx, fromy, tox, toy, arrowWidth, color){
   var headlen = 10;
   var angle = Math.atan2(toy-fromy,tox-fromx);
 
-  ctx.save();
+  ctx.beginPath();
   ctx.setLineDash([]);
   ctx.strokeStyle = color;
   ctx.fillStyle = color;
@@ -26,7 +26,6 @@ export function drawArrow(ctx, fromx, fromy, tox, toy, arrowWidth, color){
 
   ctx.stroke();
   ctx.fill();
-  ctx.restore();
   ctx.closePath();
 }
 

@@ -11,11 +11,10 @@ export class ListaVetoresView extends View{
       <table>
         <thead>
           <th>ID</th>
-          <th>Cor</th>
-          <th>Coordenada i</th>
-          <th>Coordenada j</th>
-          <th>Norma</th>
-          <th>Tipo</th>
+          <th>COR</th>
+          <th>COORDENADAS ( i , j )</th>
+          <th>NORMA</th>
+          <th>TIPO</th>
         </thead>
         <tbody>
           ${model.lista.map(vetor => {
@@ -23,8 +22,7 @@ export class ListaVetoresView extends View{
               <tr>
                 <td>${vetor.id}</td>
                 <td style="background-color:${vetor.color}"></td>
-                <td>${vetor.i}</td>
-                <td>${vetor.j}</td>
+                <td>( ${vetor.i} , ${vetor.j} )</td>
                 <td>${vetor.norma()}</td>
                 <td>${vetor.tipo()}</td>
               </tr>
