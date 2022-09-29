@@ -7,12 +7,19 @@ export class PlanoMecanica {
 
     this._container = plano.container;
     this._canvas = plano.canvas;
+    this._centerButton = plano.centerButton;
 
     this._cursorLeftPosition = 0;
     this._cursorTopPosition = 0;
 
-    this._canvas.addEventListener('mousedown', this._arrastaMouseClick);
+    this._canvas.addEventListener('mousedown', this._arrastaMouseClick); // evento clique do mouse
     this._canvas.addEventListener('touchstart', this._arrastaTouchClick); // evento touch da tela
+    this._centerButton.addEventListener('click', this.centralizaPlano); // evento botão centralizar
+  }
+
+  centralizaPlano = () => {
+    this._canvas.style.left = `${(this._container.offsetWidth - this._canvas.offsetWidth) / 2}px`;
+    this._canvas.style.top = `${(this._container.offsetHeight - this._canvas.offsetHeight) / 2}px`;
   }
 
   _arrastaMouseClick = e => { // ao clicar o mouse

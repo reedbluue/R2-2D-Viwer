@@ -79,6 +79,7 @@ tbody tr:nth-child(odd) {
   background-color: burlywood;
   overflow: hidden;
   touch-action: none;
+  position: relative;
 }
 
 .plan canvas {
@@ -86,10 +87,21 @@ tbody tr:nth-child(odd) {
   position: relative;
 }
 
+.plan .center-button {
+  background: url('../img/logo-netuno.png') center center no-repeat;
+  background-size: contain;
+  height: 60px;
+  width: 40px;
+  position: absolute;
+  z-index: 1;
+  bottom: .8rem;
+  right: .8rem;
+  border: none;
+}
+
 #center-button {
   position: absolute;
   bottom: 0;
-  z-index: 1;
 }
 
 .view {
