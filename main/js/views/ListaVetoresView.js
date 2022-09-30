@@ -15,7 +15,7 @@ export class ListaVetoresView extends View{
           <th>COORDENADAS ( i , j )</th>
           <th>NORMA</th>
           <th>TIPO</th>
-          <th>DEL?</th>
+          <th>APAGAR</th>
         </thead>
         <tbody>
           ${model.lista.map(vetor => {

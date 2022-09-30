@@ -383,14 +383,26 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-.center-button {
+.info-button {
   background: url("../img/logo-netuno.png") center center no-repeat;
   background-size: contain;
   height: 60px;
   width: 40px;
   z-index: 1;
   bottom: 0.8rem;
+  left: 0.8rem;
+}
+
+.center-button {
+  background: url("../img/sinal-mira.png") no-repeat center center;
+  background-size: contain;
+  border: solid 2px #000;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  z-index: 1;
   right: 0.8rem;
+  bottom: 0.8rem;
 }
 
 .escalaout-button {
@@ -522,6 +534,59 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.float-content {
+  background-color: var(--background);
+  border: solid #000 1px;
+  position: absolute;
+  max-width: 1000px;
+  width: 90%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  max-height: 90vh;
+  box-shadow: #000 0px 0px 50px;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.project-info__logo {
+  width: 100%;
+}
+
+.project-info h1 {
+  text-align: center;
+}
+
+.project-info__text {
+  overflow-y: auto;
+  padding: 0 2rem;
+  padding-bottom: 2rem;
+}
+
+.project-info__button {
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  background: rgb(138, 45, 45) url("../img/sinal-mais.png") no-repeat center center;
+  transform: rotate(45deg);
+  background-size: 110%;
+  border: solid 2px #000;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  z-index: 1;
+  right: 0.5rem;
+  top: 0.5rem;
+  scale: 0.6;
 }
 
 /*# sourceMappingURL=index.css.map */

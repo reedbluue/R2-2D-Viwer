@@ -3,3 +3,17 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+.float-content {
+  background-color: var(--background);
+  border: solid #000 1px;
+  position: absolute;
+  max-width: 1000px;
+  width: 90%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 15px;
+  max-height: 90vh;
+  box-shadow: #000 0px 0px 50px;
+}

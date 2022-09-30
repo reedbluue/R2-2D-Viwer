@@ -17,14 +17,26 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.center-button {
+.info-button {
   background: url('../img/logo-netuno.png') center center no-repeat;
   background-size: contain;
   height: 60px;
   width: 40px;
   z-index: 1;
   bottom: .8rem;
+  left: .8rem;
+}
+
+.center-button {
+  background: url('../img/sinal-mira.png') no-repeat center center;
+  background-size: contain;
+  border: solid 2px #000;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  z-index: 1;
   right: .8rem;
+  bottom: .8rem;
 }
 
 .escalaout-button {
