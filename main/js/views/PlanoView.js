@@ -31,6 +31,7 @@ export class PlanoView {
 
   update(model) {
     this._planoModify.ajustaAoDisplay(model, this._planoPrint.escalaDistancia);
+    this._planoMecanica.centralizaPlano();
     this._planoPrint.updatePlano(model);
   }
 }
