@@ -21,6 +21,13 @@ export class ListaVetores {
     this._lista.splice(index, 1);
   }
 
+  findById(id) {
+    let vetor = this._lista.find(vetor => vetor.id == id);
+    if (!vetor)
+      throw new Error('Id não encontrado! Não foi possível retornar o vetor.');
+    return vetor;
+  }
+
   maiorIJ() {
     let mI = 0, mJ = 0;
     this._lista.forEach(vetor => {

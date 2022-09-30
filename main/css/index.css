@@ -94,6 +94,11 @@ tbody tr:nth-child(odd) {
   -webkit-tap-highlight-color: transparent;
 }
 
+.js {
+  cursor: pointer;
+  user-select: none;
+}
+
 .center-button {
   background: url('../img/logo-netuno.png') center center no-repeat;
   background-size: contain;
@@ -150,6 +155,4 @@ tbody tr:nth-child(odd) {
 .table--del-cell {
   color: rgb(241, 83, 83);
   font-weight: 700;
-  cursor: pointer;
-  user-select: none;
 }

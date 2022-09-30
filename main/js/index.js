@@ -15,3 +15,8 @@ listaView.addEventListener('click', e => {
   if(e.path[0].hasAttribute('js--deletar-vetor'))
     planoController.removeVetor(e.path[1].cells[0].textContent);
 });
+
+listaView.addEventListener('click', e => {
+  if(e.path[0].hasAttribute('js--destacar-vetor'))
+    planoController.destacaVetor(e.path[1].cells[0].textContent);
+});

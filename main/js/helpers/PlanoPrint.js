@@ -1,4 +1,4 @@
-import { drawArrow, drawRefLine } from "../functions/drawElements.js";
+import { drawArrow, drawCircleMark, drawRefLine } from "../functions/drawElements.js";
 import { Plano } from "../models/Plano.js";
 import { Vetor } from "../models/Vetor.js";
 
@@ -163,6 +163,12 @@ export class PlanoPrint {
   
       this._ctx.closePath();
     }
+  }
+
+  desenhaCirculoNoVetor(vetor) {
+    let planW = this._canvas.offsetWidth;
+    let planH = this._canvas.offsetHeight;
+    drawCircleMark(this._ctx, vetor, this._plano.escala, this.escalaDistancia, planW, planH);
   }
 }
 

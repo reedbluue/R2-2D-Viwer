@@ -23,10 +23,10 @@ export class ListaVetoresView extends View{
               <tr>
                 <td>${vetor.id}</td>
                 <td style="background-color:${vetor.color}"></td>
-                <td>( ${vetor.i} , ${vetor.j} )</td>
+                <td class="js" js--destacar-vetor>( ${vetor.i} , ${vetor.j} )</td>
                 <td>${vetor.norma()}</td>
                 <td>${vetor.tipo()}</td>
-                <td class="table--del-cell" js--deletar-vetor>X</td>
+                <td class="js table--del-cell" js--deletar-vetor>X</td>
               </tr>
             `;
           }).join('')}

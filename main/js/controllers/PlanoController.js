@@ -64,4 +64,9 @@ export class PlanoController {
       this._planoView.update(this._listaVetores);
     }
   }
+
+  destacaVetor(id) {
+    this._planoView.update(this._listaVetores);
+    this._planoView.marcaVetor(this._listaVetores.findById(id));
+  }
 }

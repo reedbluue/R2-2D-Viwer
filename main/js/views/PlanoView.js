@@ -25,8 +25,8 @@ export class PlanoView {
     this._planoPrint.updatePlano(lista);
   }
 
-  template() {
-    return;
+  marcaVetor(vetor) {
+    this._planoPrint.desenhaCirculoNoVetor(vetor);
   }
 
   update(model) {

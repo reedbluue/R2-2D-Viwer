@@ -42,3 +42,13 @@ export function drawRefLine(ctx, vetor, escala, distanciaEscala, planW, planH) {
     ctx.stroke();
     ctx.closePath();
 }
+
+export function drawCircleMark(ctx, vetor, escala, distanciaEscala, planW, planH){
+  ctx.beginPath();
+  ctx.setLineDash([]);
+  ctx.strokeStyle = '#f00';
+  ctx.lineWidth = 4;
+  ctx.arc(planW/2 + (distanciaEscala * vetor.i) / escala, planH/2 - (distanciaEscala * vetor.j) / escala, 20, 0, 359);
+  ctx.stroke();
+  ctx.closePath();
+}
