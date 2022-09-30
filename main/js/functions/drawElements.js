@@ -29,16 +29,16 @@ export function drawArrow(ctx, fromx, fromy, tox, toy, arrowWidth, color){
   ctx.closePath();
 }
 
-export function drawRefLine(ctx, vetor, escala, planW, planH) {
+export function drawRefLine(ctx, vetor, escala, distanciaEscala, planW, planH) {
     ctx.beginPath();
     ctx.strokeStyle = vetor.color;
     ctx.setLineDash([18, 18]);
     ctx.lineDashOffset = -18;
     ctx.lineWidth = 1;
-    ctx.moveTo(planW/2 + (escala * vetor.i), planH/2 - (escala * vetor.j));
-    ctx.lineTo(planW/2 + (escala * vetor.i), planH/2);
-    ctx.moveTo(planW/2 + (escala * vetor.i), planH/2 - (escala * vetor.j));
-    ctx.lineTo(planW/2, planH/2 - (escala * vetor.j));
+    ctx.moveTo(planW/2 + (distanciaEscala * vetor.i) / escala, planH/2 - (distanciaEscala * vetor.j) / escala);
+    ctx.lineTo(planW/2 + (distanciaEscala * vetor.i) / escala, planH/2);
+    ctx.moveTo(planW/2 + (distanciaEscala * vetor.i) /escala, planH/2 - (distanciaEscala * vetor.j) / escala);
+    ctx.lineTo(planW/2, planH/2 - (distanciaEscala * vetor.j) / escala);
     ctx.stroke();
     ctx.closePath();
 }

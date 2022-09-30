@@ -20,8 +20,8 @@ export class PlanoMecanica {
     this._canvas.addEventListener('touchstart', this._arrastaTouchClick); // evento touch da tela
 
     this._centerButton.addEventListener('click', this.centralizaPlano); // evento botão centralizar
-    this._escalaInButton.addEventListener('click', this._aumentaEscala);
-    this._escalaOutButton.addEventListener('click', this._diminuiEscala);
+    this._escalaInButton.addEventListener('click', this._diminuiEscala);
+    this._escalaOutButton.addEventListener('click', this._aumentaEscala);
   }
 
   centralizaPlano = () => {

@@ -26,7 +26,7 @@ export class PlanoPrint {
   this._canvas = plano.canvas;
   this._ctx = this._canvas.getContext('2d');
 
-  this.escalaDistancia = 35; // escala em px para cada unidade
+  this.escalaDistancia = 50; // escala em px para cada unidade
   }
 
   updatePlano(model) {
@@ -50,7 +50,7 @@ export class PlanoPrint {
       vetorWidth, vetor.color
     );
     
-    drawRefLine(this._ctx, vetor, this.escalaDistancia, planW, planH);
+    drawRefLine(this._ctx, vetor, this._plano.escala, this.escalaDistancia, planW, planH);
 
   }
 
