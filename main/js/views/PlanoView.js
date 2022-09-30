@@ -29,9 +29,14 @@ export class PlanoView {
     this._planoPrint.desenhaCirculoNoVetor(vetor);
   }
 
-  update(model) {
-    this._planoModify.ajustaAoDisplay(model, this._planoPrint.escalaDistancia);
-    this._planoMecanica.centralizaPlano();
-    this._planoPrint.updatePlano(model);
+  update(model, center=1) {
+    if(center) {
+      this._planoModify.ajustaAoDisplay(model, this._planoPrint.escalaDistancia);
+      this._planoMecanica.centralizaPlano();
+      this._planoPrint.updatePlano(model);
+    } else {
+      this._planoModify.ajustaAoDisplay(model, this._planoPrint.escalaDistancia);
+      this._planoPrint.updatePlano(model);
+    }
   }
 }

@@ -89,46 +89,50 @@ export class PlanoMecanica {
   }
 
   _arrastaTouchClick = e => { // ao tocar na tela
-    this._cursorLeftPosition = e.touches[0].pageX - this._canvas.offsetLeft; // atualiza o valor da posição x do plano
-    this._cursorTopPosition = e.touches[0].pageY - this._canvas.offsetTop; // atualiza o valor da posição y do plano
-
-    addEventListener('touchmove', this._arrastaTouchMove); // evento move touch na tela
-    addEventListener('touchstop', this._arrastaTouchStop); // evento fim do touch na tela
+    if(e.touches[0].target == this._canvas){
+      this._cursorLeftPosition = e.touches[0].pageX - this._canvas.offsetLeft; // atualiza o valor da posição x do plano
+      this._cursorTopPosition = e.touches[0].pageY - this._canvas.offsetTop; // atualiza o valor da posição y do plano
+  
+      addEventListener('touchmove', this._arrastaTouchMove); // evento move touch na tela
+      addEventListener('touchstop', this._arrastaTouchPara); // evento fim do touch na tela
+    }
   }
 
   _arrastaTouchMove = e => { // ao mover o touch na tela
-    this._canvas.style.left = `${e.touches[0].pageX - this._cursorLeftPosition}px`;  // atualiza o valor da posição x do plano
-    this._canvas.style.top = `${e.touches[0].pageY - this._cursorTopPosition}px`;  // atualiza o valor da posição y do plano
+    if(e.touches[0].target == this._canvas){
+      this._canvas.style.left = `${e.touches[0].pageX - this._cursorLeftPosition}px`;  // atualiza o valor da posição x do plano
+      this._canvas.style.top = `${e.touches[0].pageY - this._cursorTopPosition}px`;  // atualiza o valor da posição y do plano
 
-    let canvasLeft = this._canvas.offsetLeft; // posição x do plano
-    let canvasRight = this._canvas.offsetLeft + this._canvas.offsetWidth;  // posição y do plano
+      let canvasLeft = this._canvas.offsetLeft; // posição x do plano
+      let canvasRight = this._canvas.offsetLeft + this._canvas.offsetWidth;  // posição y do plano
 
-    if (canvasLeft > 0) {
-      this._canvas.style.left = `0px`;
-      this._cursorLeftPosition = e.touches[0].pageX - this._canvas.offsetLeft;
-    }
+      if (canvasLeft > 0) {
+        this._canvas.style.left = `0px`;
+        this._cursorLeftPosition = e.touches[0].pageX - this._canvas.offsetLeft;
+      }
 
-    if (canvasRight < this._container.offsetWidth) {
-      this._canvas.style.left = `${this._container.offsetWidth - this._canvas.offsetWidth}px`;
-      this._cursorLeftPosition = e.touches[0].pageX - this._canvas.offsetLeft;
-    }
+      if (canvasRight < this._container.offsetWidth) {
+        this._canvas.style.left = `${this._container.offsetWidth - this._canvas.offsetWidth}px`;
+        this._cursorLeftPosition = e.touches[0].pageX - this._canvas.offsetLeft;
+      }
 
-    let canvasTop = this._canvas.offsetTop;
-    let canvasBottom = this._canvas.offsetTop + this._canvas.offsetHeight;
+      let canvasTop = this._canvas.offsetTop;
+      let canvasBottom = this._canvas.offsetTop + this._canvas.offsetHeight;
 
-    if (canvasTop > 0) {
-      this._canvas.style.top = `0px`;
-      this._cursorTopPosition = e.touches[0].pageY - this._canvas.offsetTop;
-    }
+      if (canvasTop > 0) {
+        this._canvas.style.top = `0px`;
+        this._cursorTopPosition = e.touches[0].pageY - this._canvas.offsetTop;
+      }
 
-    if (canvasBottom < this._container.offsetHeight) {
-      this._canvas.style.top = `${this._container.offsetHeight - this._canvas.offsetHeight}px`;
-      this._cursorTopPosition = e.touches[0].pageY - this._canvas.offsetTop;
+      if (canvasBottom < this._container.offsetHeight) {
+        this._canvas.style.top = `${this._container.offsetHeight - this._canvas.offsetHeight}px`;
+        this._cursorTopPosition = e.touches[0].pageY - this._canvas.offsetTop;
+      }
     }
   }
 
-  _arrastaTouchStop() {
+  _arrastaTouchPara() {
     removeEventListener('touchmove', this._arrastaTouchMove);  // remove o evento mover o touch
-    removeEventListener('touchstop', this._arrastaTouchStop);  // remove o evento fim do touch
+    removeEventListener('touchstop', this._arrastaTouchPara);  // remove o evento fim do touch
   }
 }

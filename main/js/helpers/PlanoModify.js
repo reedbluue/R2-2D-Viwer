@@ -10,8 +10,8 @@ export class PlanoModify {
 
   ajustaAoDisplay(lista, escalaDistancia) {
 
-    this._plano.container.style.width = `${window.innerWidth * this._plano.width}px`; // atualiza valores do tamanho do container do plano
-    this._plano.container.style.height = `${window.innerHeight * this._plano.height}px`; // atualiza valores do tamanho do container do plano
+    this._plano.container.style.width = `${document.documentElement.clientWidth * this._plano.width}px`; // atualiza valores do tamanho do container do plano
+    this._plano.container.style.height = `${document.documentElement.clientHeight * this._plano.height}px`; // atualiza valores do tamanho do container do plano
 
     if (this._plano.container.offsetWidth > this._plano.canvas.offsetWidth) { // se a largura do container for maior
       this._plano.canvas.setAttribute('width', `${this._plano.container.offsetWidth}px`); // modificando a largura do canvas
