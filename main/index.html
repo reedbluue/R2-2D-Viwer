@@ -11,24 +11,22 @@
     <link rel="stylesheet" href="./css/index.css">
   </head>
   <body>
-      <div class="plan" id="plano1">
-        <button class="escalain-button plan-button" aria-label="botão para aumentar escala"></button>
-        <button class="escalaout-button plan-button" aria-label="botão para diminuir escala"></button>
-        <button class="center-button plan-button" aria-label="botão para centralizar"></button>
-        <canvas width="250px" height="250px"></canvas>
-      </div>
+    <div class="plan" id="plano1">
+      <button class="escalain-button plan-button" aria-label="botão para aumentar escala"></button>
+      <button class="escalaout-button plan-button" aria-label="botão para diminuir escala"></button>
+      <button class="center-button plan-button" aria-label="botão para centralizar"></button>
+      <canvas width="250px" height="250px"></canvas>
+    </div>
     <div id="mensagem-view"></div>
-    <form id="form-vetor">
+    <form class="form form-vetor" id="form-vetor">
       <input type="text" name="id" id="form-id" maxlength="10" required autofocus style="text-transform:uppercase" placeholder="Nome do vetor"/>
       <input type="number" name="i" id="form-i" min="-100" max="100" style="text-transform:uppercase" required placeholder="Coordenada i" />
       <input type="number" name="j" id="form-j" min="-100" max="100" style="text-transform:uppercase" required placeholder="Coordenada j"/>
       <input type="color" name="color" id="form-color" value="#284b63"/>
-      <input type="submit" value="ADICIONAR VETOR"/>
+      <input type="submit" name="submit" value="ADICIONAR VETOR"/>
     </form>
-
-    <div id="lista-view" class="view"> 
-    </div>
-
+      <div id="lista-view" class="view"> 
+      </div>
     <script src="./js/index.js" type="module"></script>
   </body>
 </html>

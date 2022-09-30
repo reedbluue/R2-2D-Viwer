@@ -23,10 +23,10 @@ export class PlanoModify {
 
     let maiorIJ = lista.maiorIJ();
 
-    if(this._plano.canvas.offsetWidth < (maiorIJ[0] * escalaDistancia) * 2)
+    if(this._plano.canvas.offsetWidth < (maiorIJ[0] * escalaDistancia) * 2 + (escalaDistancia * 5))
       this._plano.canvas.setAttribute('width', `${(maiorIJ[0] * escalaDistancia) * 2 + (escalaDistancia * 5)}px`);
 
-    if(this._plano.canvas.offsetHeight < (maiorIJ[1] * escalaDistancia) * 2)
+    if(this._plano.canvas.offsetHeight < (maiorIJ[1] * escalaDistancia) * 2 + (escalaDistancia * 5))
       this._plano.canvas.setAttribute('height', `${(maiorIJ[1] * escalaDistancia) * 2 + (escalaDistancia * 5)}px`);
 
     // Ajusta a posição do canvas caso saia do compo visível da tela

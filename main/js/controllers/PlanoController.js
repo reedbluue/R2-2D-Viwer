@@ -32,6 +32,8 @@ export class PlanoController {
 
     this._planoView = new PlanoView(new Plano('#plano1'), this._listaVetores);
 
+    this._mensagem.modify('Olá humano ^^ Adicione seu primeiro vetor!', 0);
+
     addEventListener('resize', () => {
       this._planoView.update(this._listaVetores);
     })

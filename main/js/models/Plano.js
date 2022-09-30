@@ -10,7 +10,7 @@ export class Plano {
     this.escala = 1;
 
     this.width = 1;
-    this.height = 0.85;
+    this.height = 0.75;
   }
 
   get container() { return this._container; }

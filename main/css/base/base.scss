@@ -1,0 +1,10 @@
+@use './variaveis';
+
+body {
+  background-color: var(--background);
+}
+
+.js {
+  cursor: pointer;
+  user-select: none;
+}

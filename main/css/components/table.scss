@@ -1,0 +1,32 @@
+#lista-view {
+  overflow-x: auto;
+  padding: .5rem;
+  width: 100%;
+  max-width: 1500px;
+}
+
+table {
+  color: rgb(0,0,0);
+  background-color: rgb(217, 217, 217);
+  text-align: center;
+  width: 100%;
+  border-radius: 5px;
+}
+
+table th {
+  background-color: rgb(60, 110, 113);
+  padding: .9rem 2rem;
+}
+
+table td {
+  padding: .9rem 2rem;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.table--del-cell {
+  color: rgb(241, 83, 83);
+  font-weight: 700;
+}

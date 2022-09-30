@@ -1,0 +1,52 @@
+.plan {
+  background-color: burlywood;
+  overflow: hidden;
+  touch-action: none;
+  position: relative;
+}
+
+.plan canvas {
+  background-color: var(--background-r2plan);
+  position: relative;
+}
+
+.plan-button {
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.center-button {
+  background: url('../img/logo-netuno.png') center center no-repeat;
+  background-size: contain;
+  height: 60px;
+  width: 40px;
+  z-index: 1;
+  bottom: .8rem;
+  right: .8rem;
+}
+
+.escalaout-button {
+  background: url('../img/sinal-menos.png') no-repeat center center;
+  background-size: 50%;
+  border: solid 2px #000;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  z-index: 1;
+  top: 5.5rem;
+  right: .8rem;
+}
+
+.escalain-button {
+  background: url('../img/sinal-mais.png') no-repeat center center;
+  background-size: 50%;
+  border: solid 2px #000;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  z-index: 1;
+  top: .8rem;
+  right: .8rem;
+}
