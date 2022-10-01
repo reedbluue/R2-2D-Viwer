@@ -13,8 +13,9 @@ export class ListaVetoresView extends View{
           <th>ID</th>
           <th>COR</th>
           <th>COORDENADAS ( i , j )</th>
-          <th>NORMA</th>
           <th>TIPO</th>
+          <th>NORMA</th>
+          <th>VERSOR</th>
           <th>APAGAR</th>
         </thead>
         <tbody>
@@ -24,8 +25,9 @@ export class ListaVetoresView extends View{
                 <td>${vetor.id}</td>
                 <td style="background-color:${vetor.color}"></td>
                 <td class="js" js--destacar-vetor>( ${vetor.i} , ${vetor.j} )</td>
-                <td>${vetor.norma()}</td>
                 <td>${vetor.tipo()}</td>
+                <td>${vetor.norma()}</td>
+                <td class="js" js--mostra-versor>( ${vetor.versor().i} , ${vetor.versor().j} )</td>
                 <td class="js table--del-cell" js--deletar-vetor>X</td>
               </tr>
             `;

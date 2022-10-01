@@ -10,24 +10,33 @@ export class PlanoModify {
 
   ajustaAoDisplay(lista, escalaDistancia) {
 
-    this._plano.container.style.width = `${document.documentElement.clientWidth * this._plano.width}px`; // atualiza valores do tamanho do container do plano
-    this._plano.container.style.height = `${document.documentElement.clientHeight * this._plano.height}px`; // atualiza valores do tamanho do container do plano
+    if (!this._plano.manualSize) {
+      this._plano.container.style.width = `${document.documentElement.clientWidth * this._plano.width}px`; // atualiza valores do tamanho do container do plano
+      this._plano.container.style.height = `${document.documentElement.clientHeight * this._plano.height}px`; // atualiza valores do tamanho do container do plano
 
-    if (this._plano.container.offsetWidth > this._plano.canvas.offsetWidth) { // se a largura do container for maior
-      this._plano.canvas.setAttribute('width', `${this._plano.container.offsetWidth}px`); // modificando a largura do canvas
+      if (this._plano.container.offsetWidth > this._plano.canvas.offsetWidth) { // se a largura do container for maior
+        this._plano.canvas.setAttribute('width', `${this._plano.container.offsetWidth}px`); // modificando a largura do canvas
+      }
+  
+      if (this._plano.container.offsetHeight > this._plano.canvas.offsetHeight) {  // se a altura do container for maior
+        this._plano.canvas.setAttribute('height', `${this._plano.container.offsetHeight}px`); // modificando a altura do canvas
+      }
+
+      let maiorIJ = lista.maiorIJ();
+
+      if(this._plano.canvas.offsetWidth < (maiorIJ[0] * escalaDistancia) * 2 + (escalaDistancia * 5))
+        this._plano.canvas.setAttribute('width', `${(maiorIJ[0] * escalaDistancia) * 2 + (escalaDistancia * 5)}px`);
+  
+      if(this._plano.canvas.offsetHeight < (maiorIJ[1] * escalaDistancia) * 2 + (escalaDistancia * 5))
+        this._plano.canvas.setAttribute('height', `${(maiorIJ[1] * escalaDistancia) * 2 + (escalaDistancia * 5)}px`);
+
+    } else {
+      this._plano.container.style.width = `${this._plano.mWidth}px`; // atualiza valores do tamanho do container do plano
+      this._plano.container.style.height = `${this._plano.mHeight}px`; // atualiza valores do tamanho do container do plano
+
+      this._plano.canvas.setAttribute('width', `${this._plano.mWidth}px`); // modificando a largura do canvas
+      this._plano.canvas.setAttribute('height', `${this._plano.mHeight}px`); // modificando a altura do canvas
     }
-
-    if (this._plano.container.offsetHeight > this._plano.canvas.offsetHeight) {  // se a altura do container for maior
-      this._plano.canvas.setAttribute('height', `${this._plano.container.offsetHeight}px`); // modificando a altura do canvas
-    }
-
-    let maiorIJ = lista.maiorIJ();
-
-    if(this._plano.canvas.offsetWidth < (maiorIJ[0] * escalaDistancia) * 2 + (escalaDistancia * 5))
-      this._plano.canvas.setAttribute('width', `${(maiorIJ[0] * escalaDistancia) * 2 + (escalaDistancia * 5)}px`);
-
-    if(this._plano.canvas.offsetHeight < (maiorIJ[1] * escalaDistancia) * 2 + (escalaDistancia * 5))
-      this._plano.canvas.setAttribute('height', `${(maiorIJ[1] * escalaDistancia) * 2 + (escalaDistancia * 5)}px`);
 
     // Ajusta a posição do canvas caso saia do compo visível da tela
     

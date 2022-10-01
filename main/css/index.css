@@ -548,10 +548,11 @@ body {
   border-radius: 15px;
   max-height: 90vh;
   box-shadow: #000 0px 0px 50px;
+  z-index: 2;
 }
 
 .project-info {
-  display: flex;
+  display: none;
   flex-direction: column;
   overflow: hidden;
   z-index: 2;
@@ -584,6 +585,36 @@ body {
   width: 40px;
   border-radius: 100%;
   z-index: 1;
+  right: 0.5rem;
+  top: 0.5rem;
+  scale: 0.6;
+}
+
+.float-plan {
+  width: auto;
+  padding: 0.5rem;
+}
+
+.float-plan .plan {
+  border-radius: 10px;
+}
+
+.versor-info {
+  text-align: center;
+}
+
+.exit-plan {
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  background: rgb(138, 45, 45) url("../img/sinal-mais.png") no-repeat center center;
+  transform: rotate(45deg);
+  background-size: 110%;
+  border: solid 2px #000;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
   right: 0.5rem;
   top: 0.5rem;
   scale: 0.6;

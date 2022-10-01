@@ -23,6 +23,12 @@ listaView.addEventListener('click', e => {
     planoController.destacaVetor(e.path[1].cells[0].textContent);
 });
 
+listaView.addEventListener('click', e => {
+  if(e.path[0].hasAttribute('js--mostra-versor')) {
+    planoController.mostraVersor(e.path[1].cells[0].textContent);
+  }
+});
+
 infoButton.addEventListener('click', () => {
   $('.project-info').style.display = 'flex';
 });

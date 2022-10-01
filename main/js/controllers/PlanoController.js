@@ -5,6 +5,7 @@ import { Plano } from "../models/Plano.js";
 import { Vetor } from "../models/Vetor.js";
 import { ListaVetoresView } from "../views/ListaVetoresView.js";
 import { MensagemView } from "../views/MensagemView.js";
+import { PlanoVersorView } from "../views/PlanoVersorView.js";
 import { PlanoView } from "../views/PlanoView.js";
 
 const $ = document.querySelector.bind(document);
@@ -31,6 +32,8 @@ export class PlanoController {
     );
 
     this._planoView = new PlanoView(new Plano('#plano1'), this._listaVetores);
+
+    this._planoVersorView = new PlanoVersorView($('#versor-view'), new Plano('#plano2', true));
 
     this._mensagem.modify('Olá humano ^^ Adicione seu primeiro vetor!', 0);
 
@@ -70,5 +73,9 @@ export class PlanoController {
   destacaVetor(id) {
     this._planoView.update(this._listaVetores, 0);
     this._planoView.marcaVetor(this._listaVetores.findById(id));
+  }
+
+  mostraVersor(id) {
+    this._planoVersorView.update(this._listaVetores.findById(id).versor());
   }
 }
