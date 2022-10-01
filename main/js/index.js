@@ -29,6 +29,12 @@ listaView.addEventListener('click', e => {
   }
 });
 
+listaView.addEventListener('click', e => {
+  if(e.path[0].hasAttribute('js--inverter-vetor')) {
+    planoController.inverteVetor(e.path[1].cells[0].textContent);
+  }
+});
+
 infoButton.addEventListener('click', () => {
   $('.project-info').style.display = 'flex';
 });

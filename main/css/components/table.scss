@@ -30,3 +30,8 @@ tbody tr:nth-child(odd) {
   color: rgb(241, 83, 83);
   font-weight: 700;
 }
+
+.table--neg-cell {
+  background: url('../img/sinal-inverter.png') center center no-repeat;
+  background-size: 22%;
+}

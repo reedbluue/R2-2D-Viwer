@@ -43,7 +43,7 @@ export class PlanoVersorView {
   }
 
 
-  _remove(e) {
+  _remove() {
     this._elemento.innerHTML = '';
     this._plano.exitButton.removeEventListener('click', this._remove);
   }

@@ -28,7 +28,7 @@ export class PlanoController {
     this._listaVetores = new Bind(
       new ListaVetores(),
       new ListaVetoresView($('#lista-view')),
-      'adiciona', 'remove'
+      'adiciona', 'remove', 'inverteById'
     );
 
     this._planoView = new PlanoView(new Plano('#plano1'), this._listaVetores);
@@ -73,9 +73,17 @@ export class PlanoController {
   destacaVetor(id) {
     this._planoView.update(this._listaVetores, 0);
     this._planoView.marcaVetor(this._listaVetores.findById(id));
+    this._mensagem.modify(`Vetor "${id}" destacado no plano!`, 0);
   }
 
   mostraVersor(id) {
     this._planoVersorView.update(this._listaVetores.findById(id).versor());
+  }
+
+  inverteVetor(id) {
+    this._listaVetores.inverteById(id);
+    this._planoView.update(this._listaVetores);
+
+    this._mensagem.modify(`Coordenadas do vetor "${id}" invertidas!`, 0);
   }
 }

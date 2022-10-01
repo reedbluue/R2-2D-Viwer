@@ -530,6 +530,11 @@ tbody tr:nth-child(odd) {
   font-weight: 700;
 }
 
+.table--neg-cell {
+  background: url("../img/sinal-inverter.png") center center no-repeat;
+  background-size: 22%;
+}
+
 body {
   display: flex;
   flex-direction: column;

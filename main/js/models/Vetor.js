@@ -11,6 +11,11 @@ export class Vetor {
 
   versor() { return new Vetor(`v-${this.id}`, this.color, (this.i / this.norma()).toFixed(2), (this.j / this.norma()).toFixed(2)); }
 
+  inverte() {
+    this.i *= -1;
+    this.j *= -1;
+  }
+
   tipo() {
     let tipos = [];
     if(this.norma() == 1) {

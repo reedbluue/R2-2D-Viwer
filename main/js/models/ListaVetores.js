@@ -21,6 +21,10 @@ export class ListaVetores {
     this._lista.splice(index, 1);
   }
 
+  inverteById(id) {
+    this.findById(id).inverte();
+  }
+
   findById(id) {
     let vetor = this._lista.find(vetor => vetor.id == id);
     if (!vetor)

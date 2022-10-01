@@ -16,6 +16,7 @@ export class ListaVetoresView extends View{
           <th>TIPO</th>
           <th>NORMA</th>
           <th>VERSOR</th>
+          <th>INVERTER</th>
           <th>APAGAR</th>
         </thead>
         <tbody>
@@ -28,6 +29,7 @@ export class ListaVetoresView extends View{
                 <td>${vetor.tipo()}</td>
                 <td>${vetor.norma()}</td>
                 <td class="js" js--mostra-versor>( ${vetor.versor().i} , ${vetor.versor().j} )</td>
+                <td class="js table--neg-cell" js--inverter-vetor></td>
                 <td class="js table--del-cell" js--deletar-vetor>X</td>
               </tr>
             `;
