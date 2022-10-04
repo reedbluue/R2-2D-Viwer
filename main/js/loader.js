@@ -9,5 +9,5 @@ window.addEventListener('load', () => {
   setTimeout(() =>{
     loaderContent.style.display = 'none';
     body.style.overflow = 'initial';
-  }, 2000);
+  }, 0);
 });

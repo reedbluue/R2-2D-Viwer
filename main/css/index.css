@@ -598,10 +598,11 @@ body {
 }
 
 .project-info {
-  display: none;
   flex-direction: column;
   overflow: hidden;
   z-index: 2;
+  display: none;
+  max-width: 500px;
 }
 
 .project-info__logo {
@@ -612,10 +613,16 @@ body {
   text-align: center;
 }
 
+.project-info h2 {
+  text-align: center;
+  margin: 2rem 0;
+}
+
 .project-info__text {
   overflow-y: auto;
   padding: 0 2rem;
   padding-bottom: 2rem;
+  text-align: center;
 }
 
 .project-info__button {

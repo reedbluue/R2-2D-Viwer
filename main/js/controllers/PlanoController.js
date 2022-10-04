@@ -35,7 +35,7 @@ export class PlanoController {
 
     this._planoVersorView = new PlanoVersorView($('#versor-view'), new Plano('#plano2', true));
 
-    this._mensagem.modify('Olá humano ^^ Adicione seu primeiro vetor!', 0);
+    this._mensagem.modify('Olá, humano ^^ Adicione seu primeiro vetor!', 0);
 
     this._planoView.update(this._listaVetores);
 
