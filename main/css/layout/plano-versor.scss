@@ -5,10 +5,14 @@
 
 .float-plan .plan{
   border-radius: 10px;
+  border: solid 1px;
+  border-color: #000;
 }
 
 .versor-info {
   text-align: center;
+  font-size: 2rem;
+  color: var(--versor-text-color);
 }
 
 .exit-plan {

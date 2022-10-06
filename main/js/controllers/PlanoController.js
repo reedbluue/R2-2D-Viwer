@@ -16,8 +16,8 @@ export class PlanoController {
     this._formID = $('#form-id');
     this._formID.focus();
     this._formColor = $('#form-color');
-    this._formI = $('#form-i');
-    this._formJ = $('#form-j');
+    this._formI = $('#form-x');
+    this._formJ = $('#form-y');
 
     this._mensagem = new Bind(
       new Mensagem(),

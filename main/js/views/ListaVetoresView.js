@@ -1,3 +1,4 @@
+import { validaTipo } from "../functions/vetorChecks.js";
 import { View } from "./View.js";
 
 export class ListaVetoresView extends View{
@@ -12,7 +13,7 @@ export class ListaVetoresView extends View{
         <thead>
           <th>ID</th>
           <th>COR</th>
-          <th>COORDENADAS ( i , j )</th>
+          <th>COORDENADAS ( x , y )</th>
           <th>TIPO</th>
           <th>NORMA</th>
           <th>VERSOR</th>
@@ -26,9 +27,9 @@ export class ListaVetoresView extends View{
                 <td>${vetor.id}</td>
                 <td style="background-color:${vetor.color}"></td>
                 <td class="js" js--destacar-vetor>( ${vetor.i} , ${vetor.j} )</td>
-                <td>${vetor.tipo()}</td>
+                <td>${validaTipo(vetor)}</td>
                 <td>${vetor.norma()}</td>
-                <td class="js" js--mostra-versor>( ${vetor.versor().i} , ${vetor.versor().j} )</td>
+                ${ vetor.norma() != 0 ? `<td class="js" js--mostra-versor>( ${vetor.versor().i} , ${vetor.versor().j} )</td>` : `<td class="js">VETOR NULO</td>` }
                 <td class="js table--neg-cell" js--inverter-vetor></td>
                 <td class="js table--del-cell" js--deletar-vetor>X</td>
               </tr>

@@ -3,11 +3,11 @@
 }
 
 .alerta {
-  background-color: rgb(60, 113, 84);
+  background-color: var(--alert-ok-color);
   padding: .5rem;
   text-align: center;
 }
 
 .alerta--erro {
-  background-color: rgb(133, 55, 55);
+  background-color: var(--alert-error-color);
 }

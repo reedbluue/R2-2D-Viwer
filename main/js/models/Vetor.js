@@ -1,8 +1,10 @@
+import { validaEntrada } from "../functions/vetorChecks.js";
+
 export class Vetor {
   constructor(id, color = '000', i = 0, j = 0) {
     this.id = id.toUpperCase();
-    this.i = i;
-    this.j = j;
+    this.i = Number(validaEntrada(i).toFixed(2));
+    this.j = Number(validaEntrada(j).toFixed(2));
 
     this.color = color;
   }
@@ -14,17 +16,5 @@ export class Vetor {
   inverte() {
     this.i *= -1;
     this.j *= -1;
-  }
-
-  tipo() {
-    let tipos = [];
-    if(this.norma() == 1) {
-      tipos.push('UNITÁRIO');
-    } else if (this.i == this.j && this.i == 0) {
-      tipos.push('NULO');
-    } else {
-      tipos = ['NÃO ESPECIAL']
-    }
-    return tipos.join(' - ')
   }
 }

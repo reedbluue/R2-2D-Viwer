@@ -318,13 +318,25 @@ template {
 /* Variáveis globais */
 :root {
   --background: rgb(53, 53, 53);
-  --background-r2plan: rgb(217, 217, 217);
+  --background-r2plan: rgb(207, 207, 207);
   --primary-color: hsl(204, 42%, 27%);
   --secondary-color: rgb(60, 110, 113);
   --text-color: rgb(255, 255, 254);
   --link-color: rgb(79, 102, 103);
   --button-bg-color: rgb(254, 255, 255);
   --button-text-color: rgb(0,0,0);
+  --table-text-color: #000;
+  --table-th-background-color: rgb(60, 110, 113);
+  --table-th-text-color: #000;
+  --table-tr-background-color-odd: rgb(212, 212, 212);
+  --table-tr-background-color-even: rgb(180, 180, 180);
+  --loader-text-color: #FFF;
+  --loader-background-color: rgb(53, 53, 53);
+  --alert-ok-color: rgb(60, 113, 84);
+  --alert-error-color:rgb(133, 55, 55);
+  --input-background-color: rgb(211, 211, 211);
+  --versor-text-color: #fff;
+  --color-text-info-project: #fff;
 }
 
 body {
@@ -365,7 +377,7 @@ a {
 }
 
 .loader__content {
-  background-color: var(--background);
+  background-color: var(--loader-background-color);
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -382,10 +394,11 @@ a {
   font-weight: 700;
   margin: 0;
   padding: 0;
+  color: var(--loader-text-color);
 }
 
 .loader {
-  border: 1.6rem solid var(--background-r2plan);
+  border: 1.6rem solid var(--loader-background-color);
   border-top: 1.6rem solid var(--primary-color);
   border-radius: 50%;
   width: 10rem;
@@ -475,13 +488,13 @@ a {
 }
 
 .alerta {
-  background-color: rgb(60, 113, 84);
+  background-color: var(--alert-ok-color);
   padding: 0.5rem;
   text-align: center;
 }
 
 .alerta--erro {
-  background-color: rgb(133, 55, 55);
+  background-color: var(--alert-error-color);
 }
 
 .form-vetor {
@@ -498,6 +511,11 @@ a {
   text-align: center;
   border-radius: 5px;
   padding: 0.9rem;
+  background-color: var(--input-background-color);
+}
+
+.form-vetor input::placeholder {
+  color: rgb(41, 41, 41);
 }
 
 .form-vetor input[name=id] {
@@ -525,7 +543,8 @@ a {
   grid-area: submit;
   color: var(--button-text-color);
   display: inline-block;
-  background-color: var(--button-bg-color);
+  background-color: #3a7a4a;
+  color: #fff;
   padding: 1rem;
   border-radius: 30px;
 }
@@ -538,6 +557,24 @@ a {
   border-radius: 30px;
 }
 
+.theme-button {
+  width: 5rem;
+  height: 5rem;
+  background-size: 2.5rem;
+  border-radius: 15px;
+}
+
+.theme-button.moon {
+  background: url(../img/moon.svg) center center no-repeat;
+  background-color: rgb(151, 151, 151);
+}
+
+.theme-button.sun {
+  background: url(../img/sun.svg) center center no-repeat;
+  background-size: 2.5rem;
+  background-color: #fff;
+}
+
 #lista-view {
   overflow-x: auto;
   padding: 0.5rem;
@@ -546,16 +583,17 @@ a {
 }
 
 table {
-  color: rgb(0, 0, 0);
-  background-color: rgb(217, 217, 217);
+  color: var(--table-text-color);
+  background-color: #000;
   text-align: center;
   width: 100%;
   border-radius: 5px;
 }
 
 table th {
-  background-color: rgb(60, 110, 113);
+  background-color: var(--table-th-background-color);
   padding: 0.9rem 2rem;
+  color: var(--table-th-text-color);
 }
 
 table td {
@@ -563,7 +601,11 @@ table td {
 }
 
 tbody tr:nth-child(odd) {
-  background-color: #fff;
+  background-color: var(--table-tr-background-color-odd);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--table-tr-background-color-even);
 }
 
 .table--del-cell {
@@ -603,6 +645,7 @@ body {
   z-index: 2;
   display: none;
   max-width: 500px;
+  color: var(--color-text-info-project);
 }
 
 .project-info__logo {
@@ -650,10 +693,14 @@ body {
 
 .float-plan .plan {
   border-radius: 10px;
+  border: solid 1px;
+  border-color: #000;
 }
 
 .versor-info {
   text-align: center;
+  font-size: 2rem;
+  color: var(--versor-text-color);
 }
 
 .exit-plan {

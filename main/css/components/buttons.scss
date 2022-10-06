@@ -5,3 +5,21 @@
   padding: 1rem;
   border-radius: 30px;
 }
+
+.theme-button {
+  width: 5rem;
+  height: 5rem;
+  background-size: 2.5rem;
+  border-radius: 15px;
+}
+
+.theme-button.moon {
+  background: url(../img/moon.svg) center center no-repeat;
+  background-color: rgb(151, 151, 151);
+}
+
+.theme-button.sun {
+  background: url(../img/sun.svg) center center no-repeat;
+  background-size: 2.5rem;
+  background-color: #fff;
+}

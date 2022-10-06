@@ -2,7 +2,7 @@
 
 :root {
   --background: rgb(53, 53, 53);
-  --background-r2plan: rgb(217, 217, 217);
+  --background-r2plan: rgb(207, 207, 207);
   
   --primary-color: hsl(204, 42%, 27%);
   --secondary-color: rgb(60, 110, 113);
@@ -12,4 +12,22 @@
 
   --button-bg-color: rgb(254, 255, 255);
   --button-text-color: rgb(0,0,0);
+
+  --table-text-color: #000;
+  --table-th-background-color: rgb(60, 110, 113);
+  --table-th-text-color: #000;
+  --table-tr-background-color-odd: rgb(212, 212, 212);
+  --table-tr-background-color-even: rgb(180, 180, 180);
+
+  --loader-text-color: #FFF;
+  --loader-background-color: rgb(53, 53, 53);
+
+  --alert-ok-color: rgb(60, 113, 84);
+  --alert-error-color:rgb(133, 55, 55);
+
+  --input-background-color: rgb(211, 211, 211);
+
+  --versor-text-color: #fff;
+
+  --color-text-info-project: #fff;
 }

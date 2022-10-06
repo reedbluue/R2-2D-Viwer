@@ -6,16 +6,17 @@
 }
 
 table {
-  color: rgb(0,0,0);
-  background-color: rgb(217, 217, 217);
+  color: var(--table-text-color);
+  background-color: #000;
   text-align: center;
   width: 100%;
   border-radius: 5px;
 }
 
 table th {
-  background-color: rgb(60, 110, 113);
+  background-color: var(--table-th-background-color);
   padding: .9rem 2rem;
+  color: var(--table-th-text-color);
 }
 
 table td {
@@ -23,7 +24,11 @@ table td {
 }
 
 tbody tr:nth-child(odd) {
-  background-color: #fff;
+  background-color: var(--table-tr-background-color-odd);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--table-tr-background-color-even);
 }
 
 .table--del-cell {
