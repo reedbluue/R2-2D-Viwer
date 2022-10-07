@@ -23,6 +23,11 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
   themeButton.classList.add('sun');
 }
 
+themeController.toDark();
+themeController.status = 0;
+themeButton.classList.remove('sun');
+themeButton.classList.add('moon');
+
 function changeTheme() {
   if(themeController.status) {
     themeController.toDark();

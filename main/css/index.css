@@ -325,6 +325,8 @@ template {
   --link-color: rgb(79, 102, 103);
   --button-bg-color: rgb(254, 255, 255);
   --button-text-color: rgb(0,0,0);
+  --form-button-bg-color: rgb(254, 255, 255);
+  --form-button-text-color: rgb(0,0,0);
   --table-text-color: #000;
   --table-th-background-color: rgb(60, 110, 113);
   --table-th-text-color: #000;
@@ -491,6 +493,8 @@ a {
   background-color: var(--alert-ok-color);
   padding: 0.5rem;
   text-align: center;
+  font-weight: 700;
+  font-style: italic;
 }
 
 .alerta--erro {
@@ -543,8 +547,8 @@ a {
   grid-area: submit;
   color: var(--button-text-color);
   display: inline-block;
-  background-color: #3a7a4a;
-  color: #fff;
+  background-color: var(--form-button-bg-color);
+  color: var(--form-button-text-color);
   padding: 1rem;
   border-radius: 30px;
 }
@@ -558,8 +562,9 @@ a {
 }
 
 .theme-button {
-  width: 5rem;
-  height: 5rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  padding: 2rem;
   background-size: 2.5rem;
   border-radius: 15px;
 }
@@ -648,6 +653,10 @@ body {
   color: var(--color-text-info-project);
 }
 
+.project-info__content {
+  overflow-y: auto;
+}
+
 .project-info__logo {
   width: 100%;
 }
@@ -658,7 +667,7 @@ body {
 
 .project-info h2 {
   text-align: center;
-  margin: 2rem 0;
+  margin: 2rem 1rem;
 }
 
 .project-info__text {

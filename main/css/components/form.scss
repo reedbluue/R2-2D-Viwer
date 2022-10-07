@@ -49,8 +49,8 @@
   grid-area: submit;
   color: var(--button-text-color);
   display: inline-block;
-  background-color: #3a7a4a;
-  color: #fff;
+  background-color: var(--form-button-bg-color);
+  color: var(--form-button-text-color);
   padding: 1rem;
   border-radius: 30px;
 }

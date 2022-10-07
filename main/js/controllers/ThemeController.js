@@ -1,7 +1,7 @@
 // black theme
 
-let backgroundDark = "rgb(53, 53, 53)";
-let backgroundR2planDark = "rgb(207, 207, 207)";
+let backgroundDark = "#212529";
+let backgroundR2planDark = "#ADB5BD";
   
 let primaryColorDark = "hsl(204, 42%, 27%)";
 let secondaryColorDark = "rgb(60, 110, 113)";
@@ -12,19 +12,22 @@ let linkColorDark = "rgb(79, 102, 103)";
 let buttonBgColorDark = "rgb(254, 255, 255)";
 let buttonTextColorDark = "rgb(0,0,0)";
 
+let formButtonBgColorDark = "#495057"
+let formButtonTextColorDark = "#fff";
+
 let tableTextColorDark = "#000";
-let tableThBackgroundColorDark = "rgb(60, 110, 113)";
-let tableThTextColorDark = "#000";
+let tableThBackgroundColorDark = "#495057";
+let tableThTextColorDark = "#fff";
 let tableTrBackgroundColorOddDark = "rgb(212, 212, 212)";
 let tableTrBackgroundColorEvenDark = "rgb(180, 180, 180)";
 
 let loaderTextColorDark = "#FFF";
-let loaderBackgroundColorDark = "rgb(53, 53, 53)";
+let loaderBackgroundColorDark = "#212529";
 
-let alertOkColorDark = "rgb(60, 113, 84)";
-let alertErrorColorDark ="rgb(133, 55, 55)";
+let alertOkColorDark = "#495057";
+let alertErrorColorDark ="#343A40";
 
-let inputBackgroundColorDark = "rgb(211, 211, 211)";
+let inputBackgroundColorDark = "#CED4DA";
 
 let versorTextColorDark = "#fff";
 
@@ -32,8 +35,8 @@ let colorTextInfoProjectDark = '#fff';
 
 // Light Theme
 
-let backgroundLight = "#fff";
-let backgroundR2planLight = "#fff";
+let backgroundLight = "#EAF4F4";
+let backgroundR2planLight = "#CCE3DE";
   
 let primaryColorLight = "hsl(204, 42%, 27%)";
 let secondaryColorLight = "rgb(60, 110, 113)";
@@ -44,17 +47,20 @@ let linkColorLight = "rgb(79, 102, 103)";
 let buttonBgColorLight = "rgb(254, 255, 255)";
 let buttonTextColorLight = "rgb(0,0,0)";
 
+let formButtonBgColorLight = "#CCE3DE"
+let formButtonTextColorLight = "rgb(0,0,0)";
+
 let tableTextColorLight = "#000";
-let tableThBackgroundColorLight = "rgb(1, 0, 138)";
-let tableThTextColorLight = "#fff";
+let tableThBackgroundColorLight = "#6B9080";
+let tableThTextColorLight = "#000";
 let tableTrBackgroundColorOddLight = "rgb(212, 212, 212)";
 let tableTrBackgroundColorEvenLight = "rgb(180, 180, 180)";
 
 let loaderTextColorLight = "#000";
-let loaderBackgroundColorLight = "#fff";
+let loaderBackgroundColorLight = "#EAF4F4";
 
-let alertOkColorLight = "rgb(1, 0, 138)";
-let alertErrorColorLight ="rgb(180, 55, 55)";
+let alertOkColorLight = "#6B9080";
+let alertErrorColorLight ="#b15353";
 
 let inputBackgroundColorLight = "#fff";
 
@@ -80,6 +86,8 @@ export class ThemeController {
     document.documentElement.style.setProperty('--input-background-color', inputBackgroundColorLight);
     document.documentElement.style.setProperty('--versor-text-color', versorTextColorLight);
     document.documentElement.style.setProperty('--color-text-info-project', colorTextInfoProjectLight);
+    document.documentElement.style.setProperty('--form-button-bg-color', formButtonBgColorLight);
+    document.documentElement.style.setProperty('--form-button-text-color', formButtonTextColorLight);
   }
 
   toDark() {
@@ -95,5 +103,7 @@ export class ThemeController {
     document.documentElement.style.setProperty('--input-background-color', inputBackgroundColorDark);
     document.documentElement.style.setProperty('--versor-text-color', versorTextColorDark);
     document.documentElement.style.setProperty('--color-text-info-project', colorTextInfoProjectDark);
+    document.documentElement.style.setProperty('--form-button-bg-color', formButtonBgColorDark);
+    document.documentElement.style.setProperty('--form-button-text-color', formButtonTextColorDark);
   }
 }

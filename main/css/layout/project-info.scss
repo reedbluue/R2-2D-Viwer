@@ -7,6 +7,10 @@
   color: var(--color-text-info-project);
 }
 
+.project-info__content {
+  overflow-y: auto;
+}
+
 .project-info__logo {
   width: 100%;
 }
@@ -17,7 +21,8 @@
 
 .project-info h2 {
   text-align: center;
-  margin: 2rem 0;
+  margin: 2rem 1rem;
+
 }
 
 .project-info__text {
