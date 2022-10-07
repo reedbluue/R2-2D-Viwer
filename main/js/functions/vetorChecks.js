@@ -8,7 +8,7 @@ export function validaEntrada(entrada) {
   let raiz = raizPattern.exec(entrada);
   if(raiz) {
     let number = numberPattern.exec(raiz[2]);
-    if(number && number[0] >= 0) {
+    if(number && number[0] >= 0 && number[0] <= 10000 && number[0] >= -10000) {
       if(!raiz[1] || raiz[1] == '+') {
         return Math.sqrt(number[0]);
       } else {
@@ -18,7 +18,7 @@ export function validaEntrada(entrada) {
     throw new Error(`Valor da entrada "${entrada}" inválida!`);
   } else {
     let number = numberPattern.exec(entrada);
-    if(number)
+    if(number && number[0] <= 100 && number[0] >= -100)
       return Number(number[0]);
     throw new Error(`Valor da entrada "${entrada}" inválida!`);
   }
