@@ -1,6 +1,7 @@
 .form-vetor{
   display: grid;
   grid-template-columns: minmax(50px, 1fr) minmax(50px, 1fr);
+  grid-template-rows: 4.1rem 4.1rem 4.1rem;
   gap: .5rem;
   padding: .5rem;
   grid-template-areas:
