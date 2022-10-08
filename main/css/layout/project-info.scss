@@ -51,3 +51,12 @@
   top: .5rem;
   scale: .6;
 }
+
+.project-info__github {
+  background: url('../img/github-icon.png') center center no-repeat;
+  background-size: cover;
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  margin: 1rem auto 1rem auto;
+}
