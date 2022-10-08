@@ -7,7 +7,8 @@
   color: var(--color-text-info-project);
 }
 
-.project-info__content {
+.project-info__text-box {
+  height: 50vh;
   overflow-y: auto;
 }
 
