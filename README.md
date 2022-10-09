@@ -11,7 +11,7 @@ R2-2D Viwer foi desenvolvido pela **NETUNO TECH** e visa ajudá-lo em seu estudo
 ### Recursos - v1.0.0
 
 - Adição de vetores e representação gráfica
-- Calculo de norma e versor
+- Cálculo de norma e versor
 - Classificação de vetor por tipo
 - Possibilidade de incluir raízes nas coordenadas
 - Responsividade para a maioria dos dispositivos
