@@ -84,7 +84,7 @@ Nas entradas das coordenadas, dependendo do que se quer obter, você pode inseri
 
 * Camila Silva
 * [Igor E. Oliveira](https://github.com/reedbluue)
-* [Ingrid V. Rocha](https://github.com/pequena)
+* [Ingrid V. Rocha](https://github.com/pequenaa)
 * João P. Labussiere
 * Luan G. Melo
 * Mateus Arruda
